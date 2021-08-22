@@ -1,0 +1,5 @@
+#Find the active network name (Wifi), and show proprieties
+##
+##
+
+nmcli connection show $(nmcli connection show --active | awk -F ' ' 'FNR == 2{print $1}')
