@@ -3,3 +3,10 @@
 ##
 
 nmcli connection show $(nmcli connection show --active | awk -F ' ' 'FNR == 2{print $1}')
+
+
+#
+nmcli connection modify NETWORK ipv4.ignore-auto-dns yes ipv4.dns 1.1.1.1,1.0.0.1
+
+#modify current connected network
+nmcli connection modify $(nmcli connection show --active | awk -F ' ' 'FNR == 2{print $1}') ipv4.ignore-auto-dns yes ipv4.dns 1.1.1.1,1.0.0.1
